@@ -1,13 +1,15 @@
+var buttonSelected = document.querySelectorAll("number-buttons");
 var operations = document.querySelectorAll("operation-buttons");
 const allClear = document.querySelector("all-clear-button");
 const getTotal = document.querySelector("equals-button");
 const displayOutput = document.querySelector("display-output");
 const deleteNumber = document.querySelector("delte-button")
 
-class calculator {
+class Calculator {
     constructor(displayOutput) {
         this.displayOutput = displayOutput;
     }
+    
 
     getButton(number) { }
 
@@ -23,16 +25,18 @@ class calculator {
     }
 }
 
-var buttonSelected = document.querySelectorAll("number-buttons");
+var newCalculator = new Calculator(buttonSelected)
+
+
+
+
+
+
+
+
 buttonSelected.forEach(button => button.addlEventListener("click", () => {
-
-
-
-
-
-
-
-
+    console.log(buttonSelected);
+}));
 
 
 //     switch (buttonSelected) {
@@ -71,5 +75,3 @@ buttonSelected.forEach(button => button.addlEventListener("click", () => {
 //             break;
 //     }
 // }));
-
-
