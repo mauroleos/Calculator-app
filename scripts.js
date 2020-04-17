@@ -1,28 +1,30 @@
-const numbers = querySelectorAll("number-buttons")
-const operations = document.querySelectorAll("operation-buttons");
+var operations = document.querySelectorAll("operation-buttons");
 const allClear = document.querySelector("all-clear-button");
 const getTotal = document.querySelector("equals-button");
 const displayOutput = document.querySelector("display-output");
 const deleteNumber = document.querySelector("delte-button")
 
 class calculator {
-    constructor() {
+    constructor(displayOutput) {
         this.displayOutput = displayOutput;
     }
 
-    function getButton(number) {}
+    getButton(number) { }
 
-    function delteButton(deleteNumber) {}
+    delteButton(deleteNumber) {
+    }
 
-    function allClear(allClear) {}
+    allClear(allClear) {}
 
-    function calculate(operations) {}
+    calculate(operations) { }
 
-    function getTotal(getTotal) {}
-
-    function displayOutput (displayOutput) {}
+    displayOutput(displayOutput) {
+        
+    }
 }
 
+var buttonSelected = document.querySelectorAll("number-buttons");
+buttonSelected.forEach(button => button.addlEventListener("click", () => {
 
 
 
@@ -33,21 +35,7 @@ class calculator {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// const buttonSelected = document.querySelectorAll("buttons");
-// buttonSelected.forEach(button => button.addlEventListener("click", (e) => {
-//     const buttonClicked = e.target.id;
-//     switch (buttonClicked) {
+//     switch (buttonSelected) {
 //         case "0":
 //             button = "0";
 //             break;
@@ -82,7 +70,6 @@ class calculator {
 //             button = "."
 //             break;
 //     }
-//     console.log(buttonClicked);
 // }));
 
 
