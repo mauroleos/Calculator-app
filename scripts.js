@@ -1,21 +1,45 @@
-var buttonSelected = document.getElementsByClassName('number-buttons');
-var operations = document.getElementsByClassName("operation-buttons");
-const allClear = document.getElementById('all-clear');
-const getTotal = document.getElementById("equals-button");
-const displayOutput = document.getElementById("display-output");
-const deleteNumber = document.getElementById("delte-button")
+// var buttonSelected = document.querySelectorAll(".number-buttons");
+// var operations = document.querySelectorAll(".operation-buttons");
+// const allClear = document.querySelector('.all-clear');
+// var displayOutput = document.querySelector(".display-output");
+let num1;
+let num2;
+let symbol;
 
-console.log(operations)
+function allClear() {
+    var displayOutput = document.querySelector(".display-output");
+    displayOutput.innerHTML = ''
+}
 
+var buttonSelected = document.querySelectorAll(".number-buttons");
+buttonSelected.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        var displayOutput = document.querySelector(".display-output");
+        if (displayOutput.innerHTML === '' || displayOutput.innerHTML === '0') {
+            (displayOutput.innerHTML = e.target.innerHTML)
+        } else {
+            (displayOutput.innerHTML = displayOutput.innerHTML + e.target.innerHTML)
+        }
+    })
+})
 
+var operations = document.querySelectorAll(".operation-buttons");
+operations.forEach((operation) => {
+    operation.addEventListener('click', (e) => {
+        var displayOutput = document.querySelector(".display-output");
+        var operand = e.target.value;
+        operand = symbol;
+        displayOutput.innerHTML = ''
+    })
+})
 
+function deleteBtn() { }
 
+function equals() { }
 
+var operations = document.querySelectorAll(".operation-buttons")
 
+// switch(opertions) {
+//     case '*':
 
-// for (var i = 0; i < buttonSelected.length; i++) {
-//     buttonSelected[i].addEventListener('click', getNumber);
 // }
-// function getNumber() {
-//     alert ('it works')
-//     }
