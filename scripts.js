@@ -3,6 +3,10 @@
 // const allClear = document.querySelector('.all-clear');
 // var displayOutput = document.querySelector(".display-output");
 
+let num1 = null;
+let num2 = null;
+let operand = null;
+
 function allClear() {
     var displayOutput = document.querySelector(".display-output");
     displayOutput.innerHTML = ''
@@ -19,6 +23,19 @@ buttonSelected.forEach((button) => {
         }
     })
 })
+
+var operations = document.querySelectorAll(".operation-buttons");
+operations.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        var displayOutput = document.querySelector(".display-output");
+        let operationsValue = e.target.innerHTML;
+        operand = operationsValue;
+        displayOutput.innerHTML = '';
+    })
+
+    console.log(operand)
+})
+
 
 function deleteBtn() { }
 
