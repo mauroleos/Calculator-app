@@ -55,18 +55,19 @@ function equals() {
 
     switch (operations) {
         case '÷':
-            total = sum1 / sum2;
+            total = num1 / num2;
             break;
         case '*':
-            total = sum1 * sum2;
+            total = num1 * num2;
             break;
         case '+':
-            total = sum1 + sum2;
+            total = num1 + num2;
         case '-':
-            total = sum1 - sum2;
+            total = num1 - num2;
         default:
             return;
     }
+    console.log(num1)
     displayOutput.innerHTML = total
 }
 
