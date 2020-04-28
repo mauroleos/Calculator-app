@@ -35,25 +35,26 @@ var number = displayOutput.innerHTML;
 buttonValue.forEach((button) => {
     button.addEventListener('click', ()=> {
         if(operand === null) {
-            num1 = parseFloat(number)
+            num1 = parseFloat(number);
         } else if (num1 !== null && operand !== null) {
             num2 = parseFloat(number);
-            // console.log(typeof(num1));
         }
     })
 });
 
 function allClear() {
     var displayOutput = document.querySelector('.display-output');
-    displayOutput.innerHTML = ''
+    displayOutput.innerHTML = '';
 }
 
-function equals() {
-    var operations = document.querySelectorAll('.operation-buttons');
+const equalsButton = document.querySelector('#equals-btn');
+equalsButton.addEventListener('click', ()=> {
+    // var operations = document.querySelectorAll('.operation-buttons');
     var displayOutput = document.querySelector(".display-output");
     let total = null;
+    debugger
 
-    switch (operations) {
+    switch (operand) {
         case '÷':
             total = num1 / num2;
             break;
@@ -67,8 +68,8 @@ function equals() {
         default:
             return;
     }
-    console.log(num1)
     displayOutput.innerHTML = total
-}
+    console.log(operand);
+})
 
 function deleteBtn() {}
