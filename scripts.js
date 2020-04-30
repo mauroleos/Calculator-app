@@ -31,9 +31,10 @@ operations.forEach((button) => {
 
 var buttonValue = document.querySelectorAll('.number-buttons');
 var displayOutput = document.querySelector('.display-output');
-var number = displayOutput.innerHTML;
+var number = parseFloat(displayOutput.innerHTML);
 buttonValue.forEach((button) => {
     button.addEventListener('click', ()=> {
+        debugger;
         if(operand === null) {
             num1 = parseFloat(number);
         } else if (num1 !== null && operand !== null) {
@@ -52,7 +53,7 @@ equalsButton.addEventListener('click', ()=> {
     // var operations = document.querySelectorAll('.operation-buttons');
     var displayOutput = document.querySelector(".display-output");
     let total = null;
-    debugger
+    // debugger
 
     switch (operand) {
         case '÷':
@@ -63,8 +64,10 @@ equalsButton.addEventListener('click', ()=> {
             break;
         case '+':
             total = num1 + num2;
+            break;
         case '-':
             total = num1 - num2;
+            break;
         default:
             return;
     }
