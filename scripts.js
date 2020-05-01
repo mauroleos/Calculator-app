@@ -7,14 +7,16 @@ let num1 = null;
 let num2 = null;
 let operand = null;
 
+console.log(typeof(num1))
+
 var buttonSelected = document.querySelectorAll('.number-buttons');
 buttonSelected.forEach((button) => {
     button.addEventListener('click', (e) => {
         var displayOutput = document.querySelector('.display-output');
-        if (displayOutput.innerHTML === '' || displayOutput.innerHTML === '0') {
-            (displayOutput.innerHTML = e.target.innerHTML)
+        if (displayOutput.innerText === '' || displayOutput.innerText === '0') {
+            (displayOutput.innerText = e.target.innerText)
         } else {
-            (displayOutput.innerHTML = displayOutput.innerHTML + e.target.innerHTML)
+            (displayOutput.innerText = displayOutput.innerText + e.target.innerText)
         }
     })
 })
@@ -31,21 +33,24 @@ operations.forEach((button) => {
 
 var buttonValue = document.querySelectorAll('.number-buttons');
 var displayOutput = document.querySelector('.display-output');
-var number = parseFloat(displayOutput.innerHTML);
 buttonValue.forEach((button) => {
-    button.addEventListener('click', ()=> {
-        debugger;
+    button.addEventListener('click', (e)=> {
+        // var number = parseFloat(displayOutput.textContent);
         if(operand === null) {
-            num1 = parseFloat(number);
+            num1 = parseFloat(e.target.innerText);
+            // debugger;
         } else if (num1 !== null && operand !== null) {
-            num2 = parseFloat(number);
+            num2 = parseFloat(e.target.innerText);
         }
     })
 });
 
 function allClear() {
     var displayOutput = document.querySelector('.display-output');
-    displayOutput.innerHTML = '';
+    displayOutput.innerText = '';
+    num1 = null;
+    num2 = null;
+    operand = null;
 }
 
 const equalsButton = document.querySelector('#equals-btn');
@@ -71,8 +76,15 @@ equalsButton.addEventListener('click', ()=> {
         default:
             return;
     }
-    displayOutput.innerHTML = total
+    displayOutput.innerText = total
     console.log(operand);
 })
 
-function deleteBtn() {}
+function deleteBtn() {
+    if(operand === null) {
+        num1 = num1.toString().splice(0,1)
+        // debugger;
+    } else if (num2 !== null && operand !== null) {
+        num2 = num2.toString().splice(0,1)
+    }
+}
