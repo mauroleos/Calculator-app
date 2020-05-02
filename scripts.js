@@ -1,8 +1,3 @@
-// var buttonSelected = document.querySelectorAll(".number-buttons");
-// var operations = document.querySelectorAll(".operation-buttons");
-// const allClear = document.querySelector('.all-clear');
-// var displayOutput = document.querySelector(".display-output");
-
 let num1 = null;
 let num2 = null;
 let operand = null;
@@ -23,20 +18,17 @@ var operations = document.querySelectorAll('.operation-buttons');
 operations.forEach((button) => {
     button.addEventListener('click', (e) => {
         var displayOutput = document.querySelector('.display-output');
-        var operationsValue = e.target.innerHTML;
+        var operationsValue = e.target.innerText;
         operand = operationsValue;
-        displayOutput.innerHTML = '';
+        displayOutput.innerText = '';
     })
 });
 
 var buttonValue = document.querySelectorAll('.number-buttons');
-var displayOutput = document.querySelector('.display-output');
 buttonValue.forEach((button) => {
     button.addEventListener('click', (e)=> {
-        // var number = parseFloat(displayOutput.textContent);
         if(operand === null) {
             num1 = parseFloat(e.target.innerText);
-            // debugger;
         } else if (num1 !== null && operand !== null) {
             num2 = parseFloat(e.target.innerText);
         }
@@ -53,10 +45,9 @@ function allClear() {
 
 const equalsButton = document.querySelector('#equals-btn');
 equalsButton.addEventListener('click', ()=> {
-    // var operations = document.querySelectorAll('.operation-buttons');
     var displayOutput = document.querySelector(".display-output");
     let total = null;
-    // debugger
+    // debugger;
 
     switch (operand) {
         case '÷':
@@ -75,18 +66,17 @@ equalsButton.addEventListener('click', ()=> {
             return;
     }
     displayOutput.innerText = total
-    console.log(total);
+    // console.log(total);
 })
 
-console.log(typeof(displayOutput))
-console.log(typeof(num1))
-
 function deleteBtn() {
+    var displayOutput = document.querySelector('.display-output');
     var displayArray = Object.values(displayOutput.innerText)
     displayOutput.innerText = displayArray.splice(0,1)
-    debugger; 
+    console.log(typeof(displayArray))
+    // debugger; 
     // if(operand === null) {
-    //     displayOutput.innerText = displayArray.splice(0,1)
+    //     num1 = displayOutput.innerText = displayArray.splice(0,1)
     //     // debugger;
     // } else if (num2 !== null && operand !== null) {
     //     displayOutput.innerText= displayArray.splice(0,1)
