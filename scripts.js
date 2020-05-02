@@ -7,8 +7,6 @@ let num1 = null;
 let num2 = null;
 let operand = null;
 
-console.log(typeof(num1))
-
 var buttonSelected = document.querySelectorAll('.number-buttons');
 buttonSelected.forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -77,14 +75,20 @@ equalsButton.addEventListener('click', ()=> {
             return;
     }
     displayOutput.innerText = total
-    console.log(operand);
+    console.log(total);
 })
 
+console.log(typeof(displayOutput))
+console.log(typeof(num1))
+
 function deleteBtn() {
-    if(operand === null) {
-        num1 = num1.toString().splice(0,1)
-        // debugger;
-    } else if (num2 !== null && operand !== null) {
-        num2 = num2.toString().splice(0,1)
-    }
+    var displayArray = Object.values(displayOutput.innerText)
+    displayOutput.innerText = displayArray.splice(0,1)
+    debugger; 
+    // if(operand === null) {
+    //     displayOutput.innerText = displayArray.splice(0,1)
+    //     // debugger;
+    // } else if (num2 !== null && operand !== null) {
+    //     displayOutput.innerText= displayArray.splice(0,1)
+    // }
 }
