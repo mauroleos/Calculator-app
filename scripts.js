@@ -27,10 +27,11 @@ operations.forEach((button) => {
 var buttonValue = document.querySelectorAll('.number-buttons');
 buttonValue.forEach((button) => {
     button.addEventListener('click', (e)=> {
+        var displayOutput = document.querySelector('.display-output');
         if(operand === null) {
-            num1 = parseFloat(e.target.innerText);
+            num1 = parseFloat(displayOutput.innerText);
         } else if (num1 !== null && operand !== null) {
-            num2 = parseFloat(e.target.innerText);
+            num2 = parseFloat(displayOutput.innerText);
         }
     })
 });
@@ -72,8 +73,9 @@ equalsButton.addEventListener('click', ()=> {
 function deleteBtn() {
     var displayOutput = document.querySelector('.display-output');
     var displayArray = Object.values(displayOutput.innerText)
-    displayOutput.innerText = displayArray.splice(0,1)
-    console.log(typeof(displayArray))
+    displayOutput.innerText = displayArray.splice(0,1);
+
+    console.log(typeof(num1))
     // debugger; 
     // if(operand === null) {
     //     num1 = displayOutput.innerText = displayArray.splice(0,1)
