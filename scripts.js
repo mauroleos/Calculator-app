@@ -15,15 +15,6 @@ buttonSelected.forEach((button) => {
     })
 })
 
-function updatedNumberVariables() {
-    var displayOutput = document.querySelector('.display-output');
-    if(operand === null) {
-        num1 = parseFloat(displayOutput.innerText);
-    } else if (num1 !== null && operand !== null) {
-        num2 = parseFloat(displayOutput.innerText);
-    }
-}
-
 function allClear() {
     var displayOutput = document.querySelector('.display-output');
     displayOutput.innerText = '';
@@ -38,7 +29,7 @@ operations.forEach((button) => {
         var displayOutput = document.querySelector('.display-output');
         var operationsValue = e.target.innerText;
         operand = operationsValue;
-        updatedNumberVariables();
+        // updatedNumberVariables();
         displayOutput.innerText = '';
     })
 });
@@ -65,7 +56,7 @@ equalsButton.addEventListener('click', ()=> {
         default:
             return;
     }
-    displayOutput.innerText = total
+    displayOutput.innerText = total.toFixed(3)
     // console.log(total);
 })
 
@@ -74,4 +65,13 @@ function deleteBtn() {
     var displayArray = Object.values(displayOutput.innerText)
     displayOutput.innerText = displayArray.splice(0,1);
     updatedNumberVariables();
+}
+
+function updatedNumberVariables() {
+    var displayOutput = document.querySelector('.display-output');
+    if(operand === null) {
+        num1 = parseFloat(displayOutput.innerText);
+    } else if (num1 !== null && operand !== null) {
+        num2 = parseFloat(displayOutput.innerText);
+    }
 }
