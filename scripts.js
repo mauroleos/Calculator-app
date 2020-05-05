@@ -56,8 +56,8 @@ equalsButton.addEventListener('click', ()=> {
         default:
             return;
     }
-    displayOutput.innerText = total.toFixed(3)
-    // console.log(total);
+    
+    total % 1 != 0 ? displayOutput.innerText = total.toFixed(3) : displayOutput.innerText = total
 })
 
 function deleteBtn() {
@@ -75,3 +75,6 @@ function updatedNumberVariables() {
         num2 = parseFloat(displayOutput.innerText);
     }
 }
+
+// Remove ONLY last digit when delete button is clicked
+// Move num2 value to num1 value when another operand is clicked
