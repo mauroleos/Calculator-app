@@ -31,6 +31,7 @@ operations.forEach((button) => {
         operand = operationsValue;
         // updatedNumberVariables();
         displayOutput.innerText = '';
+        
     })
 });
 
@@ -43,27 +44,32 @@ equalsButton.addEventListener('click', ()=> {
     switch (operand) {
         case '÷':
             total = num1 / num2;
+            num1 = total;
             break;
         case '*':
             total = num1 * num2;
+            num1 = total;
             break;
         case '+':
             total = num1 + num2;
+            num1 = total;
             break;
         case '-':
             total = num1 - num2;
+            num1 = total;
             break;
         default:
             return;
     }
     
-    total % 1 != 0 ? displayOutput.innerText = total.toFixed(3) : displayOutput.innerText = total
+    total % 1 != 0 ? displayOutput.innerText = total.toFixed(3) : displayOutput.innerText = total;
 })
 
 function deleteBtn() {
     var displayOutput = document.querySelector('.display-output');
-    var displayArray = Object.values(displayOutput.innerText)
-    displayOutput.innerText = displayArray.splice(0,1);
+    var displayArray = Object.values(displayOutput.innerText);
+    displayOutput.innerText = displayArray.pop();
+    debugger;
     updatedNumberVariables();
 }
 
@@ -76,5 +82,14 @@ function updatedNumberVariables() {
     }
 }
 
+const decimal = document.querySelector('#decimal-btn');
+var displayOutput = document.querySelector('.display-output');
+decimal.addEventListener('click', (e) => {
+    if (e.target.innerText === '.' && displayOutput.innerText.includes('.')) return;
+    // debugger;
+})
+
+
+// decimal issue 
 // Remove ONLY last digit when delete button is clicked
-// Move num2 value to num1 value when another operand is clicked
+//continuous math?
