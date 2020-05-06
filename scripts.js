@@ -68,7 +68,7 @@ equalsButton.addEventListener('click', () => {
 const deleteBtn = document.querySelector('#delete-btn');
 deleteBtn.addEventListener('click', () => {
     var displayArray = Object.values(displayOutput.innerText);
-    displayOutput.innerText = displayArray.splice(0,1);
+    displayOutput.innerText = displayArray.splice(0, 1);
     updatedNumberVariables();
 })
 
