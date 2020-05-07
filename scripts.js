@@ -68,17 +68,18 @@ equalsButton.addEventListener('click', () => {
 const deleteBtn = document.querySelector('#delete-btn');
 deleteBtn.addEventListener('click', () => {
     var createObject = Object.values(displayOutput.innerText);
+    console.log(typeof createObject);
     let displayArray = Array.from(createObject);
+    console.log(typeof createObject);
     
     for (i = 0; i < displayArray.length; i++) {
         if (i === displayArray.length -1) {
             (displayArray.splice(0, displayArray.length -1));
         } else {
             displayOutput.innerText = displayArray;
-
-            console.log(typeof createObject);
-            console.log(typeof displayArray);
         }
+        
+    
     }
     // debugger;
     updatedNumberVariables();
