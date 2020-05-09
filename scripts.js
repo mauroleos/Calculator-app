@@ -29,9 +29,37 @@ var operations = document.querySelectorAll('.operation-buttons');
 operations.forEach((button) => {
     button.addEventListener('click', (e) => {
         var displayOutput = document.querySelector('.display-output');
-        var operationsValue = e.target.innerText;
-        operand = operationsValue;
-        displayOutput.innerText = '';
+        operand = e.target.innerText;
+        if (num1 !== null && num2 !== null && operand !== null) {
+            switch (operand) {
+                case '÷':
+                    num1 = num1 / num2;
+                    num2 = null;
+                    displayOutput.innerText = num1;
+                    break;
+                case '*':
+                    num1 = num1 * num2;
+                    num2 = null;
+                    displayOutput.innerText = num1;
+                    break;
+                case '+':
+                    num1 = num1 + num2;
+                    num2 = null;
+                    displayOutput.innerText = num1;
+                    break;
+                case '-':
+                    num1 = num1 - num2;
+                    num2 = null;
+                    displayOutput.innerText = num1;
+                    break;
+                default:
+                    return;
+            }
+        } else {
+        
+            var displayOutput = document.querySelector('.display-output');
+            displayOutput.innerText = '';
+        }
 
     })
 });
@@ -68,18 +96,18 @@ equalsButton.addEventListener('click', () => {
 const deleteBtn = document.querySelector('#delete-btn');
 deleteBtn.addEventListener('click', () => {
     var createObject = Object.values(displayOutput.innerText);
-    console.log(typeof createObject);
+    // console.log(typeof createObject);
     let displayArray = Array.from(createObject);
-    console.log(typeof createObject);
+    // console.log(typeof displayArray);
     
     for (i = 0; i < displayArray.length; i++) {
         if (i === displayArray.length -1) {
-            (displayArray.splice(0, displayArray.length -1));
+            (displayArray.splice(i, 1));
         } else {
-            displayOutput.innerText = displayArray;
+            displayOutput.innerText = displayArray.join('');
+            console.log(displayArray)
+            console.log(typeof displayArray);
         }
-        
-    
     }
     // debugger;
     updatedNumberVariables();
