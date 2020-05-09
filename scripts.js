@@ -35,22 +35,22 @@ operations.forEach((button) => {
                 case '÷':
                     num1 = num1 / num2;
                     num2 = null;
-                    displayOutput.innerText = num1;
+                    displayOutput.innerText = null;
                     break;
                 case '*':
                     num1 = num1 * num2;
                     num2 = null;
-                    displayOutput.innerText = num1;
+                    displayOutput.innerText = null;
                     break;
                 case '+':
                     num1 = num1 + num2;
                     num2 = null;
-                    displayOutput.innerText = num1;
+                    displayOutput.innerText = null;
                     break;
                 case '-':
                     num1 = num1 - num2;
                     num2 = null;
-                    displayOutput.innerText = num1;
+                    displayOutput.innerText = null;
                     break;
                 default:
                     return;
@@ -73,18 +73,26 @@ equalsButton.addEventListener('click', () => {
         case '÷':
             total = num1 / num2;
             num1 = total;
+            num2 = null;
+            operand = null;
             break;
         case '*':
             total = num1 * num2;
             num1 = total;
+            num2 = null;
+            operand = null;
             break;
         case '+':
             total = num1 + num2;
             num1 = total;
+            num2 = null;
+            operand = null;
             break;
         case '-':
             total = num1 - num2;
             num1 = total;
+            num2 = null;
+            operand = null;
             break;
         default:
             return;
