@@ -6,7 +6,7 @@ var buttonSelected = document.querySelectorAll('.number-buttons');
 buttonSelected.forEach((button) => {
     button.addEventListener('click', (e) => {
         var displayOutput = document.querySelector('.display-output');
-        if (displayOutput.innerText === '' || displayOutput.innerText === '0') {
+        if (displayOutput.innerText === '' || displayOutput.innerText === '0' || (num1 !== null && num2 === null && operand !== null)) {
             (displayOutput.innerText = e.target.innerText)
         } else {
             (displayOutput.innerText = displayOutput.innerText + e.target.innerText)
@@ -14,7 +14,6 @@ buttonSelected.forEach((button) => {
         updatedNumberVariables();
     })
 })
-
 
 const allClearBtn = document.querySelector('#all-clear-btn');
 allClearBtn.addEventListener('click', () => {
@@ -29,38 +28,30 @@ var operations = document.querySelectorAll('.operation-buttons');
 operations.forEach((button) => {
     button.addEventListener('click', (e) => {
         var displayOutput = document.querySelector('.display-output');
-        operand = e.target.innerText;
         if (num1 !== null && num2 !== null && operand !== null) {
             switch (operand) {
                 case '÷':
                     num1 = num1 / num2;
-                    num2 = null;
-                    displayOutput.innerText = null;
                     break;
                 case '*':
                     num1 = num1 * num2;
-                    num2 = null;
-                    displayOutput.innerText = null;
                     break;
                 case '+':
                     num1 = num1 + num2;
-                    num2 = null;
-                    displayOutput.innerText = null;
                     break;
                 case '-':
                     num1 = num1 - num2;
-                    num2 = null;
-                    displayOutput.innerText = null;
                     break;
                 default:
                     return;
             }
+            num2 = null;
+            displayOutput.innerText = num1;
         } else {
-        
             var displayOutput = document.querySelector('.display-output');
             displayOutput.innerText = '';
         }
-
+        operand = e.target.innerText;
     })
 });
 
@@ -103,24 +94,17 @@ equalsButton.addEventListener('click', () => {
 
 const deleteBtn = document.querySelector('#delete-btn');
 deleteBtn.addEventListener('click', () => {
-    var createObject = Object.values(displayOutput.innerText);
-    // console.log(typeof createObject);
-    let displayArray = Array.from(createObject);
-    // console.log(typeof displayArray);
-    
-    for (i = 0; i < displayArray.length; i++) {
-        if (i === displayArray.length -1) {
-            (displayArray.splice(i, 1));
-        } else {
-            displayOutput.innerText = displayArray.join('');
-            console.log(displayArray)
-            console.log(typeof displayArray);
-        }
+    let displayArray = Array.from(displayOutput.innerText);
+    const trimmedArray = displayArray.splice(0, displayArray.length - 1);
+    let finalDisplay = '';
+
+    for (let i = 0; i < trimmedArray.length; i++) {
+        const item = trimmedArray[i];
+        finalDisplay += item;
     }
-    // debugger;
+    displayOutput.innerText = finalDisplay;
     updatedNumberVariables();
 })
-
 
 function updatedNumberVariables() {
     var displayOutput = document.querySelector('.display-output');
