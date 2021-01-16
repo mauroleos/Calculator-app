@@ -10,4 +10,4 @@ Click <a href="https://mauroleos.github.io/Calculator-app/">here</a> to see webs
   This application was essential to my learning experience due to the fact that it gave me the opportunity to dive deeper into JavaScript and advance my overall ability to use logic to solve problems, and write clean code.
   
 # Author
-<strong>Mauro Leos</strong> - <i>Full-Stack Software Developer</i> - <a href="https://www.linkedin.com/in/mauro-leos-b4103a11b/">LinkedIn </a> - <a href="https:/https://www.mauroleos.com//">Website</a>
+<strong>Mauro Leos</strong> - <i>Full-Stack Software Developer</i> - <a href="https://www.linkedin.com/in/mauro-leos-b4103a11b/">LinkedIn </a> - <a href="https://www.mauroleos.com//">Website</a>
